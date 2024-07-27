@@ -44,8 +44,11 @@ function Todos() {
         }
        
   })
-  console.log(updatedTodos);
+//   console.log(updatedTodos);
+setTodos(updatedTodos)
 }
+
+// you can refactor the completed above to completed only and it will still work
 
   
 
