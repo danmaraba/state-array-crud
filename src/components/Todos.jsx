@@ -24,6 +24,32 @@ function Todos() {
     setTodos(updatedTodos)
     // we now use the setTodos setter function to render the remaining todos after deleting other todos
   }
+
+//   Here is the logic for the updateTodo
+
+// - iterate over the elements in our todo array
+// - check if the ID matches
+// - if it does, return an updated todo
+// - otherwise, return the original todo
+  function updateTodo(id,completed){
+    console.log(todos);
+   const updatedTodos= todos.map(todo=>{
+        if(id===todo.id){
+            return{
+                ...todo,
+                completed: completed
+            }
+        }else{
+            return todo
+        }
+       
+  })
+  console.log(updatedTodos);
+}
+
+  
+
+//   console.log(todos);
   return (
     <div>
       <h2>Add Todos</h2>
@@ -42,7 +68,7 @@ function Todos() {
             <strong>{todo.description}</strong>
             <label>
               completed?
-              <input type="checkbox" checked={todo.completed} onChange={(e)=>console.log(todo.id,e.target.checked)}/>
+              <input type="checkbox" checked={todo.completed} onChange={(e)=>updateTodo(todo.id,e.target.checked)}/>
             </label>
             <button onClick={()=>deleteTodo(todo.id)}>Delete</button>
           </li>
